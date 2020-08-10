@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -33,7 +34,7 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">Tweeter</span>
-      <span class="new_tweet"><strong>Write</strong> a new tweet</span>
+      <span class="create-tweet"><strong>Write</strong> a new tweet</span>
     </nav>
     <header>
       <div class="avatar">
@@ -46,24 +47,25 @@
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente
-        molestiae repellendus saepe veritatis rerum quisquam voluptatibus, nobis
-        fugiat at dolorem nam labore eveniet eos, accusantium numquam qui
-        tempore, delectus id!
-      </p>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente
-        molestiae repellendus saepe veritatis rerum quisquam voluptatibus, nobis
-        fugiat at dolorem nam labore eveniet eos, accusantium numquam qui
-        tempore, delectus id!
-      </p>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente
-        molestiae repellendus saepe veritatis rerum quisquam voluptatibus, nobis
-        fugiat at dolorem nam labore eveniet eos, accusantium numquam qui
-        tempore, delectus id!
-      </p>
+      <section class="new-tweet">
+        <form action="/tweets" method="POST" class="new-tweet__form">
+          <!-- <label for="tweet-text">What are you humming about?</label> -->
+          <textarea
+            name="text"
+            id="tweet-text"
+            placeholder="What are you humming about?"
+          ></textarea>
+          <div class="new-tweet__div">
+            <button type="submit" class="new-tweet__div__btn">Tweet</button>
+            <output
+              name="counter"
+              class="new-tweet__div__counter"
+              for="tweet-text"
+              ><strong>140</strong></output
+            >
+          </div>
+        </form>
+      </section>
     </main>
   </body>
 </html>

@@ -16,7 +16,8 @@ nav span {
   padding: 1.5em;
 }
 
-.new_tweet {
+.create-tweet {
   padding-right: 1.5em;
   cursor: pointer;
+  
 }
