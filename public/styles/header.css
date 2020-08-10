@@ -1,0 +1,22 @@
+header {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  /* background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png"); */
+}
+
+.avatar {
+  padding: 10px;
+  background-color: #1da1f2;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  border-radius: 20%;
+  box-shadow: 3px 8px #9b9b9b;
+}
+
+.avatar__name {
+  flex: 0 0 100%;
+  text-align: center;
+}
