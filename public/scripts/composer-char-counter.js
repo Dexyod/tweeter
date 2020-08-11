@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // Character counter for text-area
-  $("#tweet-text").on("keyup", function (event) {
-    checkTextAreaMaxLength(this, event);
+  $("#tweet-text").on("keyup", function () {
+    checkTextAreaMaxLength(this);
   });
 
   // Check the max length of the text area

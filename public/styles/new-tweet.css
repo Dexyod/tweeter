@@ -1,11 +1,5 @@
-.new-tweet {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 textarea {
-  width: 600px;
+  width: 800px;
   height: 120px;
   border: 3px solid #cccccc;
   border-radius: 10px;
@@ -14,6 +8,16 @@ textarea {
   outline: none;
   resize: none;
   vertical-align: top;
+}
+
+textarea:focus {
+  box-shadow: 2px 5px #9b9b9b;
+}
+
+.new-tweet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .new-tweet__div {

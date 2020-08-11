@@ -9,6 +9,7 @@ header {
 
 .avatar {
   padding: 10px;
+  margin-top: 20px;
   background-color: #1da1f2;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
   border-radius: 20%;
