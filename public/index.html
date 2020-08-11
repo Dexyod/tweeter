@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" />
-
+    
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
-
+  
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
@@ -51,21 +51,24 @@
         <form action="/tweets" method="POST" class="new-tweet__form">
           <!-- <label for="tweet-text">What are you humming about?</label> -->
           <textarea
-            name="text"
-            id="tweet-text"
-            placeholder="What are you humming about?"
+          name="text"
+          id="tweet-text"
+          data-length="140"
+          placeholder="What are you humming about?"
           ></textarea>
           <div class="new-tweet__div">
             <button type="submit" class="new-tweet__div__btn">Tweet</button>
             <output
-              name="counter"
-              class="new-tweet__div__counter"
-              for="tweet-text"
-              ><strong>140</strong></output
+            name="counter"
+            class="new-tweet__div__counter"
+            for="tweet-text"
+            ><strong>140</strong></output
             >
           </div>
         </form>
       </section>
     </main>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js""></script>
   </body>
-</html>
+  </html>
+  
