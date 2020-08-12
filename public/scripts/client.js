@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  //Create tweet toggle functionality
+  $(".create-tweet").on("click", function () {
+    $(".new-tweet").slideToggle();
+    $("#tweet-text").focus();
+  });
+
   // takes return value and appends it to the tweets container
   const renderTweets = (tweets) => {
     tweets.map((tweet) =>
