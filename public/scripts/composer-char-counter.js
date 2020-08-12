@@ -9,15 +9,13 @@ $(document).ready(function () {
     let maxLength = 140;
 
     if (textArea.value.length <= maxLength) {
-      $(".new-tweet__div__counter").html(
-        `${maxLength - textArea.value.length}`
-      );
+      $(".new-tweet__div__counter")
+        .text(`${maxLength - textArea.value.length}`)
+        .removeClass("red");
     } else {
-      $(".new-tweet__div__counter").html(
-        `<strong style="color: red;">${
-          maxLength - textArea.value.length
-        }</strong>`
-      );
+      $(".new-tweet__div__counter")
+        .text(`${maxLength - textArea.value.length}`)
+        .addClass("red");
     }
   };
 });

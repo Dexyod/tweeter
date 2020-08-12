@@ -15,16 +15,19 @@ textarea:focus {
 }
 
 .new-tweet {
-  display: flex;
   /* visibility: hidden; */
-  justify-content: center;
+}
+
+.new-tweet__form {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
 .new-tweet__div {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
+  width: 80%;
 }
 
 .new-tweet__div__counter {
@@ -32,7 +35,9 @@ textarea:focus {
   margin: auto 0px;
   font-weight: bold;
 }
-
+.red {
+  color: #d8000c;
+}
 .new-tweet__div__btn {
   border: none;
   text-align: center;
