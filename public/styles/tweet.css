@@ -13,7 +13,7 @@ article.tweet header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: auto;
+  height: 60px;
 }
 
 .tweet__user {

@@ -1,9 +1,6 @@
 $(document).ready(function () {
   // takes return value and appends it to the tweets container
   const renderTweets = (tweets) => {
-    // for (const tweet of tweets) {
-    //   $(".container").append(createTweetElement(tweet));
-    // }
     tweets.map((tweet) =>
       $(".tweet-container").prepend(createTweetElement(tweet))
     );
@@ -38,17 +35,23 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  // POST tweet function
+  //grab the tweet form and put it in a variable
   const $tweetForm = $(".new-tweet__form");
+  //on submit handler
   $tweetForm.on("submit", function (event) {
     event.preventDefault();
     const data = $(this).serialize();
 
+    // POST tweet function
     const postTweet = (data) => {
       $.ajax({
         type: "POST",
         url: "/tweets",
         data: data,
+        success: function (response) {
+          $(".tweet-container").empty();
+          loadTweets();
+        },
       }).done(() => {
         //reset textArea to empty string and reset output value back to 140
         this[0].value = "";
@@ -56,6 +59,7 @@ $(document).ready(function () {
       });
     };
 
+    //Validate tweet body
     if (this[2].value < 0) {
       alert("Character count exceeded");
     } else if (!this[0].value) {
