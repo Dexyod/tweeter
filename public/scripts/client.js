@@ -40,10 +40,12 @@ const data = [
 $(document).ready(function () {
   // takes return value and appends it to the tweets container
   const renderTweets = (tweets) => {
-    for (const tweet of tweets) {
-      $(".container").append(createTweetElement(tweet));
-    }
-    // tweets.map((tweet) => $(".container").append(createTweetElement(tweet)));
+    // for (const tweet of tweets) {
+    //   $(".container").append(createTweetElement(tweet));
+    // }
+    tweets.map((tweet) =>
+      $(".tweet-container").prepend(createTweetElement(tweet))
+    );
   };
 
   //create tweet template from data
@@ -80,8 +82,10 @@ $(document).ready(function () {
   $tweetForm.on("submit", function (event) {
     event.preventDefault();
 
-    $.post("/tweets", $(this).serialize()).then(() => {
-      renderTweets(tweets);
+    const req = $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: $(this).serialize(),
     });
 
     //reset textArea to empty string and reset output value back to 140
@@ -91,7 +95,7 @@ $(document).ready(function () {
 
   //send ajax GET method and render tweets from database
   $.ajax({
-    method: "GET",
+    type: "GET",
     url: "/tweets",
     success: function (tweets) {
       // console.log(tweets);
