@@ -1,42 +1,3 @@
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    user: {
-      name: "Declan",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@Dexyod",
-    },
-    content: {
-      text:
-        "This is a test tweet, make sure the time changes dynamically over time. Also check to see if the hover effect works on my handle!",
-    },
-    created_at: 1597189048844,
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd",
-    },
-    content: {
-      text: "Je pense , donc je suis",
-    },
-    created_at: 1597189000000,
-  },
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/5fUVPRP.png",
-      handle: "@SirIsaac",
-    },
-    content: {
-      text:
-        "If I have seen further it is by standing on the shoulders of giants",
-    },
-    created_at: 1461116232227,
-  },
-];
-
 $(document).ready(function () {
   // takes return value and appends it to the tweets container
   const renderTweets = (tweets) => {
@@ -81,25 +42,39 @@ $(document).ready(function () {
   const $tweetForm = $(".new-tweet__form");
   $tweetForm.on("submit", function (event) {
     event.preventDefault();
+    const data = $(this).serialize();
 
-    const req = $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data: $(this).serialize(),
-    });
+    const postTweet = (data) => {
+      $.ajax({
+        type: "POST",
+        url: "/tweets",
+        data: data,
+      }).done(() => {
+        //reset textArea to empty string and reset output value back to 140
+        this[0].value = "";
+        this[2].value = 140;
+      });
+    };
 
-    //reset textArea to empty string and reset output value back to 140
-    this[0].value = "";
-    this[2].value = 140;
+    if (this[2].value < 0) {
+      alert("Character count exceeded");
+    } else if (!this[0].value) {
+      alert("Please enter text in tweet");
+    } else {
+      postTweet(data);
+    }
   });
 
   //send ajax GET method and render tweets from database
-  $.ajax({
-    type: "GET",
-    url: "/tweets",
-    success: function (tweets) {
-      // console.log(tweets);
-      renderTweets(tweets);
-    },
-  });
+  const loadTweets = () => {
+    $.ajax({
+      type: "GET",
+      url: "/tweets",
+      success: function (response) {
+        renderTweets(response);
+      },
+    });
+  };
+
+  loadTweets();
 });
