@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     if (textArea.value.length <= maxLength) {
       $(".new-tweet__div__counter").html(
-        `<strong>${maxLength - textArea.value.length}</strong>`
+        `${maxLength - textArea.value.length}`
       );
     } else {
       $(".new-tweet__div__counter").html(

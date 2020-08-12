@@ -1,4 +1,4 @@
-header {
+header.profile {
   height: 400px;
   width: 100%;
   display: flex;
@@ -17,6 +17,6 @@ header {
 }
 
 .avatar__name {
-  flex: 0 0 100%;
+  flex-basis: 100%;
   text-align: center;
 }
