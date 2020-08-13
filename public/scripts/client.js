@@ -1,8 +1,9 @@
 $(document).ready(function () {
   //Create tweet toggle functionality
   $(".create-tweet").on("click", function () {
-    $(".new-tweet").slideToggle();
-    $("#tweet-text").focus();
+    $(".new-tweet").slideToggle("slow", function () {
+      $("textarea").focus();
+    });
   });
 
   // takes return value and appends it to the tweets container
@@ -51,7 +52,6 @@ $(document).ready(function () {
 
   //grab the tweet form and put it in a variable
   const $tweetForm = $(".new-tweet__form");
-  //on submit handler
   $tweetForm.on("submit", function (event) {
     event.preventDefault();
     const data = $(this).serialize();
@@ -73,35 +73,33 @@ $(document).ready(function () {
       });
     };
 
-    //Validate tweet body
+    // Validate tweet body
     if (this[2].value < 0) {
-      validate();
+      $(".error").addClass("show");
+      $(".error").slideDown("slow", function () {
+        validate("Too Many Characters! Slow DOWN!");
+      });
     } else if (!this[0].value) {
-      validate();
+      $(".error").addClass("show");
+      $(".error").slideDown("slow", function () {
+        validate("Please write a Tweet!");
+      });
     } else {
       postTweet(data);
-      $(".error").slideUp("slow");
-
-      setTimeout(() => {
-        $(".error").remove();
-      }, 1500);
+      $(".error").slideToggle("slow");
     }
   });
 
   //validation function
-  const validate = () => {
-    const $validateMsg = $(
-      `<div class="error">Incorrect Input Please Try Again!</div>`
-    );
-
+  const validate = (error) => {
+    $(".error").text(error);
     if ($(".error").length) {
       $(".error").addClass("shake");
-
       setTimeout(() => {
         $(".error").removeClass("shake");
       }, 500);
     } else {
-      $(".new-tweet").prepend($validateMsg);
+      $(".error").text(error);
     }
   };
   //send ajax GET method and render tweets from database

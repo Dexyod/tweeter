@@ -11,6 +11,16 @@
   text-align: center;
   margin: 10px auto;
   font-size: 0.75em;
+  visibility: hidden;
+}
+
+.errorMessage {
+  color: #b00020;
+  font-size: 20px;
+}
+
+.show {
+  visibility: visible;
 }
 
 .shake {
