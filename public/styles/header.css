@@ -25,6 +25,8 @@ header.profile {
     float: left;
     justify-content: flex-end;
     width: 33%;
+    padding-top: 150px;
+    position: fixed;
   }
   .avatar__name {
     text-align: end;

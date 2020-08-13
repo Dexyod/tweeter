@@ -9,6 +9,7 @@ nav {
   top: 0;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
   padding: 0px 10px;
+  z-index: 100;
 }
 
 nav span {
@@ -38,4 +39,10 @@ nav span {
   border-top: 5px solid #f00;
   margin: 5px auto;
   visibility: hidden;
+}
+@media only screen and (min-device-width: 768px) {
+  nav {
+    position: fixed;
+    z-index: 1000;
+  }
 }
