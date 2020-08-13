@@ -36,6 +36,10 @@ article.tweet {
   }
 
   &:hover {
+    .tweet__icons {
+      visibility: visible;
+    }
+
     .tweet__handle {
       visibility: visible;
     }
@@ -83,6 +87,7 @@ article.tweet {
   margin: auto 0px;
   cursor: pointer;
   padding-right: 5px;
+  visibility: hidden;
 }
 
 @media only screen and (min-device-width: 768px) {
