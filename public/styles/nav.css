@@ -8,6 +8,7 @@ nav {
   position: sticky;
   top: 0;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  padding: 0px 10px;
 }
 
 nav span {

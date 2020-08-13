@@ -33,3 +33,11 @@ body {
   margin: 10px;
   background-color: #f4f1ec;
 }
+
+@media only screen and (min-device-width: 768px) {
+  .container {
+    float: right;
+    width: 66%;
+    margin: 0px;
+  }
+}

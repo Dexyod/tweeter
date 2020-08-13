@@ -5,11 +5,12 @@ $(document).ready(function () {
       $("textarea").focus();
     });
   });
-  $(".new-tweet").slideUp("slow");
+  // $(".new-tweet").slideUp("slow");
 
   //Scroll to textarea function
   $(window).scroll(function () {
     if ($(this).scrollTop() > 300) {
+      $("#scroll-btn").addClass("show");
       $("#scroll-btn").fadeIn();
     } else {
       $("#scroll-btn").fadeOut();
@@ -101,7 +102,7 @@ $(document).ready(function () {
     } else if (!this[0].value) {
       $(".error").addClass("show");
       $(".error").slideDown("slow", function () {
-        validate("Please write a Tweet!");
+        validate("Please hum a Tweet!");
       });
     } else {
       postTweet(data);
