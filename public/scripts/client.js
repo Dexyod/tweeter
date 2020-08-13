@@ -8,7 +8,7 @@ $(document).ready(function () {
     });
   });
 
-  //Scroll to textarea function
+  //show button to go to textarea and autofocus if scrolled down the page
   $(window).scroll(function () {
     if ($(this).scrollTop() > 200) {
       $("#scroll-btn").addClass("show");
@@ -17,7 +17,6 @@ $(document).ready(function () {
       $("#scroll-btn").fadeOut();
     }
   });
-
   $("#scroll-btn").on("click", function (event) {
     event.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, 800, function () {
@@ -27,7 +26,7 @@ $(document).ready(function () {
     });
   });
 
-  // takes return value and appends it to the tweets container
+  // renders return value and appends it to the tweets container
   const renderTweets = (tweets) => {
     tweets.map((tweet) =>
       $(".tweet-container").prepend(createTweetElement(tweet))
@@ -71,10 +70,14 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  //grab the tweet form and put it in a variable
+  //get tweet form and put it in a variable
   const $tweetForm = $(".new-tweet__form");
+
+  //Tweet Form on submit function
   $tweetForm.on("submit", function (event) {
+    //prevent default event on submit
     event.preventDefault();
+    //get data from form and serialize data
     const data = $(this).serialize();
 
     // POST tweet function
@@ -84,14 +87,28 @@ $(document).ready(function () {
         url: "/tweets",
         data: data,
         success: function (response) {
+          //if success, empty container and reload tweets
           $(".tweet-container").empty();
           loadTweets();
         },
       }).done(() => {
-        //reset textArea to empty string and reset output value back to 140
+        //reset textArea to empty string and reset output value back to 140 once done
         this[0].value = "";
         this[2].value = 140;
       });
+    };
+    //validation helper function
+    const validate = (error) => {
+      $(".error").text(error);
+      if ($(".error").length) {
+        $(".error").addClass("shake");
+        setTimeout(() => {
+          //remove class after 500ms to reset shake animation
+          $(".error").removeClass("shake");
+        }, 500);
+      } else {
+        $(".error").text(error);
+      }
     };
 
     // Validate tweet body
@@ -106,24 +123,13 @@ $(document).ready(function () {
         validate("Please hum a Tweet!");
       });
     } else {
+      // If successful POST tweet data and hide error
       postTweet(data);
       $(".error").slideUp("slow");
     }
   });
 
-  //validation function
-  const validate = (error) => {
-    $(".error").text(error);
-    if ($(".error").length) {
-      $(".error").addClass("shake");
-      setTimeout(() => {
-        $(".error").removeClass("shake");
-      }, 500);
-    } else {
-      $(".error").text(error);
-    }
-  };
-  //send ajax GET method and render tweets from database
+  //send ajax GET method
   const loadTweets = () => {
     $.ajax({
       type: "GET",
@@ -133,6 +139,6 @@ $(document).ready(function () {
       },
     });
   };
-
+  //initialize render tweets on page load
   loadTweets();
 });
