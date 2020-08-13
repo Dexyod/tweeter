@@ -3,13 +3,14 @@ $(document).ready(function () {
   $(".create-tweet").on("click", function () {
     $(".new-tweet").slideToggle("slow", function () {
       $("textarea").focus();
+      //slide error down if open
+      $(".error").slideUp("slow");
     });
   });
-  // $(".new-tweet").slideUp("slow");
 
   //Scroll to textarea function
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
+    if ($(this).scrollTop() > 200) {
       $("#scroll-btn").addClass("show");
       $("#scroll-btn").fadeIn();
     } else {

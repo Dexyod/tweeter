@@ -9,11 +9,13 @@
   bottom: 30px;
   right: 30px;
   background-color: #ffbaba;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #d8000c;
+  }
 }
+
 #scroll-btn.show {
   display: inline-block;
-}
-#scroll-btn:hover {
-  cursor: pointer;
-  background-color: #d8000c;
 }

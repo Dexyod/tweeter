@@ -10,10 +10,10 @@ nav {
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
   padding: 0px 10px;
   z-index: 100;
-}
 
-nav span {
-  color: #ffffff;
+  span {
+    color: #ffffff;
+  }
 }
 
 .logo {
@@ -25,10 +25,12 @@ nav span {
   padding-right: 1.5em;
   padding-top: 40px;
   cursor: pointer;
-}
 
-.create-tweet:hover .arrow-down {
-  visibility: visible;
+  &:hover {
+    .arrow-down {
+      visibility: visible;
+    }
+  }
 }
 
 .arrow-down {
@@ -40,6 +42,7 @@ nav span {
   margin: 5px auto;
   visibility: hidden;
 }
+
 @media only screen and (min-device-width: 768px) {
   nav {
     position: fixed;

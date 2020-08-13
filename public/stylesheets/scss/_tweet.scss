@@ -12,19 +12,50 @@ article.tweet {
   height: auto;
   width: 45%;
   margin: 20px auto;
-}
 
-article.tweet header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 60px;
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .tweet__body {
+    height: auto;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #cccccc;
+    height: 40px;
+    padding-top: 10px;
+    margin: auto 0px;
+  }
+
+  &:hover {
+    .tweet__handle {
+      visibility: visible;
+    }
+
+    box-shadow: 2px 5px #9b9b9b;
+    font-weight: 600;
+  }
 }
 
 .tweet__user {
   display: flex;
   align-items: center;
   padding: 10px;
+
+  img {
+    max-height: 60px;
+    max-width: 60px;
+    border: 1px solid #1da1f2;
+    border-radius: 50%;
+  }
 }
 
 .tweet__username {
@@ -32,33 +63,11 @@ article.tweet header {
   font-size: 0.75em;
 }
 
-.tweet__user img {
-  max-height: 60px;
-  max-width: 60px;
-  border: 1px solid #1da1f2;
-  border-radius: 50%;
-}
-
 .tweet__handle {
   visibility: hidden;
   margin: auto 0px;
   color: #cccccc;
   padding: 10px;
-}
-
-article.tweet .tweet__body {
-  height: auto;
-  text-align: center;
-  word-wrap: break-word;
-}
-
-article.tweet footer {
-  display: flex;
-  justify-content: space-between;
-  border-top: 2px solid #cccccc;
-  height: 40px;
-  padding-top: 10px;
-  margin: auto 0px;
 }
 
 .tweet__time {
@@ -76,20 +85,12 @@ article.tweet footer {
   padding-right: 5px;
 }
 
-article.tweet:hover .tweet__handle {
-  visibility: visible;
-}
-
-article.tweet:hover {
-  box-shadow: 2px 5px #9b9b9b;
-  font-weight: 600;
-}
-
 @media only screen and (min-device-width: 768px) {
   section.tweet-container {
     float: right;
     width: 66%;
   }
+
   article.tweet {
     width: 50%;
   }

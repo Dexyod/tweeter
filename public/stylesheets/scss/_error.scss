@@ -9,7 +9,7 @@
   border-radius: 10px;
   width: 50%;
   text-align: center;
-  margin: 10px auto;
+  margin: 10px auto 0px auto;
   font-size: 0.75em;
   visibility: hidden;
 }
@@ -26,8 +26,6 @@
 .shake {
   animation: shake 0.5s;
 }
-
-/* shake animation */
 
 @keyframes shake {
   0% {

@@ -2,8 +2,7 @@
   {
     "user": {
       "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
+      "avatars": "https://i.imgur.com/73hZDYK.png",
       "handle": "@SirIsaac"
     },
     "content": {
@@ -15,10 +14,22 @@
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
     "created_at": 1461113959088
+  },
+  {
+    "user": {
+      "name": "Clifford Bryant",
+      "avatars": "https://i.imgur.com/DVpDmdR.png",
+      "handle": "@Bryant10"
+    },
+    "content": {
+      "text": "It's not the number of breaths we take, but the number of moments that take our breath away."
+    },
+    "created_at": 1597350207624
   }
 ]

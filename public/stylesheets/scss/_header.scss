@@ -4,7 +4,6 @@ header.profile {
   padding-top: 30px;
   justify-content: center;
 }
-
 .avatar {
   padding: 5%;
   margin-top: 20px;
@@ -13,13 +12,10 @@ header.profile {
   border-radius: 20%;
   box-shadow: 3px 8px #9b9b9b;
 }
-
 .avatar__name {
   flex-basis: 100%;
   text-align: center;
-  /* margin-right: 5%; */
 }
-
 @media only screen and (min-device-width: 768px) {
   header.profile {
     float: left;

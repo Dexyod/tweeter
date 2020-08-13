@@ -8,16 +8,17 @@ textarea {
   outline: none;
   resize: none;
   vertical-align: top;
-}
 
-textarea:focus {
-  box-shadow: 2px 5px #9b9b9b;
+  &:focus {
+    box-shadow: 2px 5px #9b9b9b;
+  }
 }
 
 .new-tweet__form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 2%;
 }
 
 .new-tweet__div {
@@ -31,9 +32,11 @@ textarea:focus {
   margin: auto 0px;
   font-weight: bold;
 }
+
 .red {
   color: #d8000c;
 }
+
 .new-tweet__div__btn {
   border: none;
   text-align: center;
@@ -47,8 +50,9 @@ textarea:focus {
   padding: 10px 40px;
   margin: 10px 10px 10px 0px;
   box-shadow: 1px 3px #adadad;
-}
-.new-tweet__div__btn:hover {
-  box-shadow: 2px 5px #9b9b9b;
-  background-color: #1c83c4;
+
+  &:hover {
+    box-shadow: 2px 5px #9b9b9b;
+    background-color: #1c83c4;
+  }
 }
