@@ -23,7 +23,7 @@ textarea:focus {
 .new-tweet__div {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 800px;
 }
 
 .new-tweet__div__counter {

@@ -5,6 +5,25 @@ $(document).ready(function () {
       $("textarea").focus();
     });
   });
+  $(".new-tweet").slideUp("slow");
+
+  //Scroll to textarea function
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 300) {
+      $("#scroll-btn").fadeIn();
+    } else {
+      $("#scroll-btn").fadeOut();
+    }
+  });
+
+  $("#scroll-btn").on("click", function (event) {
+    event.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, 800, function () {
+      $(".new-tweet").slideDown("slow", function () {
+        $("textarea").focus();
+      });
+    });
+  });
 
   // takes return value and appends it to the tweets container
   const renderTweets = (tweets) => {
@@ -86,7 +105,7 @@ $(document).ready(function () {
       });
     } else {
       postTweet(data);
-      $(".error").slideToggle("slow");
+      $(".error").slideUp("slow");
     }
   });
 
