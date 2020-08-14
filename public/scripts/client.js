@@ -1,31 +1,4 @@
 $(document).ready(function () {
-  //Create tweet toggle functionality
-  $(".create-tweet").on("click", function () {
-    $(".new-tweet").slideToggle("slow", function () {
-      $("textarea").focus();
-      //slide error down if open
-      $(".error").slideUp("slow");
-    });
-  });
-
-  //show button to go to textarea and autofocus if scrolled down the page
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 200) {
-      $("#scroll-btn").addClass("show");
-      $("#scroll-btn").fadeIn();
-    } else {
-      $("#scroll-btn").fadeOut();
-    }
-  });
-  $("#scroll-btn").on("click", function (event) {
-    event.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, 800, function () {
-      $(".new-tweet").slideDown("slow", function () {
-        $("textarea").focus();
-      });
-    });
-  });
-
   // renders return value and appends it to the tweets container
   const renderTweets = (tweets) => {
     tweets.map((tweet) =>
@@ -96,19 +69,6 @@ $(document).ready(function () {
         this[0].value = "";
         this[2].value = 140;
       });
-    };
-    //validation helper function
-    const validate = (error) => {
-      $(".error").text(error);
-      if ($(".error").length) {
-        $(".error").addClass("shake");
-        setTimeout(() => {
-          //remove class after 500ms to reset shake animation
-          $(".error").removeClass("shake");
-        }, 500);
-      } else {
-        $(".error").text(error);
-      }
     };
 
     // Validate tweet body

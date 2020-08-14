@@ -65,6 +65,7 @@ Tweeter is a simple, single-page Twitter clone.
 ### Responsive Design
 
 - If on mobile or iPad Tweeter shifts the layout for a more user friendly experience
+- Added Sass to help design flow and ease of use
 
 ![responsive](public/images/responsive-design.png)
 
